@@ -19,5 +19,6 @@ This project gave me a chance to work with new technolgies including:
 This project also taught me more about:
 
 - Database-per-service architectures
+- Event-driven archtectures
 - Service workers
 - Concurrency & data management issues
