@@ -38,7 +38,7 @@ This project also taught me more about:
 ### Requirements ✅
 - Docker (Desktop)
 - Kubernetes
-- skaffold
+- [Skaffold](https://skaffold.dev/docs/quickstart/)
 
 ### Installation (Mac) 💾
 1. Download [Docker desktop](https://hub.docker.com/editions/community/docker-ce-desktop-mac), run the .dmg and move the docker icon to applications
@@ -52,7 +52,7 @@ This project also taught me more about:
 5. Update your hosts file:
   - type in your command line: sudo vi /etc/hosts
   - hit the 'i' key on your keyboard to enter editing mode
-  - at the bottom of the file, add a few extra empty lines and add the following: 127.0.0.1 ticketing.dev
+  - at the bottom of the file, add a few extra empty lines and add the following: `127.0.0.1 ticketing.dev`
   - hit the 'esc' key and enter ':wq' to write and quit (don't forget the colon)
 6. Run the `skaffold dev` in the command line in the same directory as the skaffold.yaml file
 
