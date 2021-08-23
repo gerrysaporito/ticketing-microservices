@@ -67,14 +67,14 @@ This app has the following functionalities:
 - Create order from cart
 - Checkout & pay for order
 
-## Roadmap
+## Roadmap 🗺
 This app is basic from a front end perspective (bootstrap) so in the future, the biggest thing I could see implemented is a user-friendly user interface. Aside from the visual aspects, ticket sharing/gifting and more advanced search functionalities can improve the user experience and cross-user interaction.
 
-## Edge Cases
+## Edge Cases ⚠️
 Although this app is pretty robust (validated through tests and strict entity versioning requirements), there are still a few corners which I cut to make it work. 
 
-### Unsent Messages
+### Unsent Messages 🚩
 For one, there is a case where a failed message may not be sent. If an entity is versioned but crashes immediately after, the message will not be sent to the messaging service to broadcast to the other listeners in the other services. This creates a data integrity issue, causing the databases to have inconsistent data. All broadcasted messages related to that entity moving forward will fail because of the differences in the entity's version. To help with this, messages could be saved to the database together with the entity through a database transaction and background service worker can constantly query the message table and send out unsent messages. This ensures that all unsent messages will send regardless of server state.
 
-### Incompatible Database Entity Version Schemas
+### Incompatible Database Entity Version Schemas 🚩
 Another shortcoming is the versioning requirement. Because all services run on MongoDB, a npm module was used to handle automatic versioning. This is fine until a service decides to use a different database (ex. PostgreSQL) and change the versioning schema. Because it is not the MongoDB version attribute, the version will never update and it will forever fail. There is no way to update the versioning schema from numbers to, for example, UUIDs. To fix this, I could implement a custom versioning hook to the MongoDB schemas to handle versioning to ensure that the versioning schema is completely accessible.
