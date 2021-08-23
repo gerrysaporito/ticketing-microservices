@@ -21,16 +21,16 @@ Common logic, middleware, types, etc. are stored on a publicly hosted NPM reposi
 ### Learning Experience
 
 This project gave me a chance to work with new technolgies including:
-- Docker
-- Kubernetes
-- NATS-Streaming
-- Github Workflows
-- Custom NPM Packages
+- [Docker](https://www.docker.com/)
+- [Kubernetes](https://kubernetes.io/)
+- [NATS-Streaming](https://docs.nats.io/nats-streaming-concepts/intro)
+- [Github Actions](https://docs.github.com/en/actions/learn-github-actions)
+- [Custom NPM Packages](https://docs.npmjs.com/creating-node-js-modules)
 
 This project also taught me more about:
-- Database-per-service architectures
-- Event-driven archtectures
-- Service workers
+- [Database-per-service architectures](https://microservices.io/patterns/data/database-per-service.html)
+- [Event-driven archtectures](https://aws.amazon.com/event-driven-architecture/)
+- [Service workers](https://developers.google.com/web/fundamentals/primers/service-workers)
 - Concurrency & data management issues
 
 ## Getting Started 🏁
@@ -41,18 +41,18 @@ This project also taught me more about:
 - skaffold
 
 ### Installation (Mac) 💾
-1. Download (docker desktop)[https://hub.docker.com/editions/community/docker-ce-desktop-mac], run the .dmg and move the docker icon to applications
+1. Download [Docker desktop](https://hub.docker.com/editions/community/docker-ce-desktop-mac), run the .dmg and move the docker icon to applications
 2. Open docker and log in
 3. Click on the docker icon:
   - select preferences
   - click on the kubernetes tab and select the 'enable kubernetes' checkbox
   - hit the 'apply and restart' button to install' kubernetes
-4. Install ingress-nginx for (docker desktop)[https://kubernetes.github.io/ingress-nginx/deploy/#docker-for-mac]
+4. Install [ingress-nginx](https://kubernetes.github.io/ingress-nginx/deploy/) for Docker desktop
   - run the following command in the command line: `kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission`
 5. Update your hosts file:
   - type in your command line: sudo vi /etc/hosts
   - hit the 'i' key on your keyboard to enter editing mode
-  - at the bottom of the file, add a few extra empty lines and add the following: 127.0.0.1 lumaki.dev
+  - at the bottom of the file, add a few extra empty lines and add the following: 127.0.0.1 ticketing.dev
   - hit the 'esc' key and enter ':wq' to write and quit (don't forget the colon)
 6. Run the following command in the command line in the same directory as the skaffold.yaml file: skaffold dev
 
@@ -62,8 +62,8 @@ This project also taught me more about:
 ## Features 🧩
 This app has the following functionalities:
 - Sign in/up
-- Add a ticket
-- Add ticket to cart (and mark it 'reserved' for 15 min)
+- Add a ticket to the marketplace (seller)
+- Add ticket to cart (buyer) and mark it 'reserved' for 15 min
 - Create order from cart
 - Checkout & pay for order
 
@@ -71,7 +71,7 @@ This app has the following functionalities:
 This app is basic from a front end perspective (bootstrap) so in the future, the biggest thing I could see implemented is a user-friendly user interface. Aside from the visual aspects, ticket sharing/gifting and more advanced search functionalities can improve the user experience and cross-user interaction.
 
 ## Edge Cases
-Although this app is pretty robust (validated through test cases and strict entity versioning requirements), there are still a few corners which I cut to make it work. 
+Although this app is pretty robust (validated through tests and strict entity versioning requirements), there are still a few corners which I cut to make it work. 
 
 ### Unsent Messages
 For one, there is a case where a failed message may not be sent. If an entity is versioned but crashes immediately after, the message will not be sent to the messaging service to broadcast to the other listeners in the other services. This creates a data integrity issue, causing the databases to have inconsistent data. All broadcasted messages related to that entity moving forward will fail because of the differences in the entity's version. To help with this, messages could be saved to the database together with the entity through a database transaction and background service worker can constantly query the message table and send out unsent messages. This ensures that all unsent messages will send regardless of server state.
