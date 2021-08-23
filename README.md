@@ -18,7 +18,7 @@ Each service is designed to act independently (from development to deployment). 
 
 Common logic, middleware, types, etc. are stored on a publicly hosted NPM repository which standardizes definitions and related content between services. This ensures that all information is uniform across each server.
 
-### Learning Experience
+### Learning Experience 📚
 
 This project gave me a chance to work with new technolgies including:
 - [Docker](https://www.docker.com/)
@@ -48,13 +48,13 @@ This project also taught me more about:
   - click on the kubernetes tab and select the 'enable kubernetes' checkbox
   - hit the 'apply and restart' button to install' kubernetes
 4. Install [ingress-nginx](https://kubernetes.github.io/ingress-nginx/deploy/) for Docker desktop
-  - run the following command in the command line: `kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission`
+  - run the `kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission` in the command line
 5. Update your hosts file:
   - type in your command line: sudo vi /etc/hosts
   - hit the 'i' key on your keyboard to enter editing mode
   - at the bottom of the file, add a few extra empty lines and add the following: 127.0.0.1 ticketing.dev
   - hit the 'esc' key and enter ':wq' to write and quit (don't forget the colon)
-6. Run the following command in the command line in the same directory as the skaffold.yaml file: skaffold dev
+6. Run the `skaffold dev` in the command line in the same directory as the skaffold.yaml file
 
 ### Notes 🖍
 - If you try to open the url in chrome and you get a 'this connection is not safe', click anywhere on the page and type the phrase 'thisisunsafe' to bypass security
