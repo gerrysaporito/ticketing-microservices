@@ -81,4 +81,4 @@ To help with this, messages could be saved to the database together with the ent
 ### Incompatible Database Entity Version Schemas 🚩
 Another shortcoming is the versioning requirement. Because all services run on MongoDB, a npm module was used to handle automatic versioning. This is fine until a service decides to use a different database (ex. PostgreSQL) and change the versioning schema. Because it is not the MongoDB version attribute, the version will never update and it will forever fail. There is no way to update the versioning schema from numbers to, for example, UUIDs. 
 
-To fix this, I could implement a custom versioning hook to the MongoDB schemas to handle versioning to ensure that the versioning schema is completely accessible.
+To fix this, a custom versioning hook for MongoDB schemas can be implemented to handle versioning to ensure that the versioning schema is completely accessible.
