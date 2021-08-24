@@ -64,7 +64,7 @@ This app has the following functionalities:
 - Sign in/up
 - Add a ticket to the marketplace (seller)
 - Add ticket to cart (buyer) and mark it 'reserved' for 15 min
-- Create order from cart
+- Create order from cart 
 - Checkout & pay for order
 
 ## Roadmap 🗺
