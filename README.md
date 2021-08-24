@@ -57,7 +57,7 @@ This project also taught me more about:
 6. Run the `skaffold dev` in the command line in the same directory as the skaffold.yaml file
 
 ### Notes 🖍
-- If you try to open the url in chrome and you get a 'this connection is not safe', click anywhere on the page and type the phrase 'thisisunsafe' to bypass security
+- If you try to open the url in chrome and you get a 'this connection is not safe', click anywhere on the page and type the phrase `thisisunsafe` to bypass security
 
 ## Features 🧩
 This app has the following functionalities:
