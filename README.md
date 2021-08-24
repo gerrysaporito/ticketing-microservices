@@ -83,6 +83,6 @@ Another shortcoming is the versioning requirement. Because all services run on M
 
 To fix this, a custom versioning hook for MongoDB schemas can be implemented to handle versioning to ensure that the versioning schema is completely accessible.
 
-### Notes
+### Notes 🖍
 
 This is by no means an exhaustive list but only a few of the more critical points.
