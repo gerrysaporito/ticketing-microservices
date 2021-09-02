@@ -1,4 +1,4 @@
-# Ticketing Microservices App
+# Ticketing Microservices App 
 
 ## Introduction 🎩
 This is a web app that allows users to reserve and purchase tickets to events, similar to eventbrite.
